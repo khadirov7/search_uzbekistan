@@ -1,7 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart';
-
 import '../models/region_model.dart';
 
 class PlacesDatabase {
@@ -57,6 +56,7 @@ class PlacesDatabase {
   Future<List<RegionModel>> searchRegionsByName(String query) => _search('regions', query, (json) => RegionModel.fromJson(json));
   Future<List<DistrictModel>> searchDistrictsByName(String query) => _search('districts', query, (json) => DistrictModel.fromJson(json));
   Future<List<QuarterModel>> searchQuartersByName(String query) => _search('quarters', query, (json) => QuarterModel.fromJson(json));
+
 
   Future<List<RegionModel>> getAllRegions() async {
     final db = await instance.database;
